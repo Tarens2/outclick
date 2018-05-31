@@ -44,7 +44,7 @@
     }
   }
 
-  window.document.addEventListener('click', function(e){
+  window.document.addEventListener('touchstart', function(e){
     for(var i = OutClickListeners.length; i--;){
       var listener = OutClickListeners[i]
       var contains = false
