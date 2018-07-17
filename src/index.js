@@ -44,7 +44,7 @@
     }
   }
 
-  window.document.addEventListener('touchstart', function(e){
+  var callback = function(e){
     for(var i = OutClickListeners.length; i--;){
       var listener = OutClickListeners[i]
       var contains = false
@@ -60,7 +60,10 @@
         listener.listener && listener.listener(e)
       }
     }
-  })
+  }
+  
+  window.document.addEventListener('touchstart', callback)
+  window.document.addEventListener('click', callback)
 
   /** Getting rid of event listeners */
   window.Node.prototype.removeEventListener = function (event, listener) {
